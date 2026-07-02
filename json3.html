@@ -34,7 +34,9 @@
         });
         $("body").append(filtered_song);
 
+        let songs;
         $.get("songs.json", function(data) {
+            songs = data;
             const genres = new Set();
             data.forEach(song => {
                 song.genres.forEach(genre => {
