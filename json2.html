@@ -17,7 +17,9 @@
 
         // read the songs, and for each song, change it's field into valid html, 
         // then join the list into a string and add it to the body
+        let songs;
         $.get("songs.json", function(data) {
+            songs = data;
             const song_info = data.map(song => 
                 "<h4>" + song.title + "</h4>" +
                 "Artist: " + song.artist + "<br>" +
