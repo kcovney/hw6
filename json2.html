@@ -9,10 +9,14 @@
 
 <body>
     <script>
+        // make a place to put the songs
         const song_list_container = $("<div>", {
             id: "song_list_container"
         });
         $("body").append(song_list_container);
+
+        // read the songs, and for each song, change it's field into valid html, 
+        // then join the list into a string and add it to the body
         $.get("songs.json", function(data) {
             const song_info = data.map(song => 
                 "<h4>" + song.title + "</h4>" +
