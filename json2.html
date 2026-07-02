@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Part 2: Read a JSON Object from a file</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        const song_list_container = $("<div>", {
+            id: "song_list_container"
+        });
+        $("body").append(song_list_container);
+        $.get("songs.json", function(data) {
+            const song_info = data.map(song => 
+                "<h4>" + song.title + "</h4>" +
+                "Artist: " + song.artist + "<br>" +
+                "Genre: " + song.genres.join(", ") + "<br>" + 
+                "Released " + song.year
+            ).join("");
+            document.getElementById('song_list_container').innerHTML = song_info;
+        }, 'json');
+    </script>
+</body>
+
+</html>

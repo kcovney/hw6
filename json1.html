@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Part 1: Create a JSON Object</title>
+</head>
+
+<body>
+    <script>
+        const song_list = [
+            {
+                "title": "Bohemian Rhapsody",
+                "artist": "Queen",
+                "year": 1975,
+                "genres": [
+                    "rock", "pop"
+                ]
+            },
+            {
+                "title": "Georgia on My Mind",
+                "artist": "Hoagy Carmichael and his Orchestra",
+                "year": 1930,
+                "genres": [
+                    "jazz", "pop"
+                ]
+            },
+            {
+                "title": "Like a Rolling Stone",
+                "artist": "Bob Dylan",
+                "year": 1965,
+                "genres": [
+                    "folk", "pop"
+                ]
+            },
+            {
+                "title": "Dreams",
+                "artist": "Fleetwood Mac",
+                "year": 1977,
+                "genres": [
+                    "pop"
+                ]
+            },
+            {
+                "title": "God Only Knows",
+                "artist": "The Beach Boys",
+                "year": 1966,
+                "genres": [
+                    "pop"
+                ]
+            },
+            {
+                "title": "Superstition",
+                "artist": "Stevie Wonder",
+                "year": 1972,
+                "genres": [
+                    "pop", "funk"
+                ]
+            },
+            {
+                "title": "Oleo",
+                "artist": "The Miles Davis Quintet",
+                "year": 1956,
+                "genres": [
+                    "jazz"
+                ]
+            },
+            {
+                "title": "Redemption Song",
+                "artist": "Bob Marley and the Wailers",
+                "year": 1980,
+                "genres": [
+                    "reggae"
+                ]
+            },
+            {
+                "title": "Lute Suite in C minor, BWV 997",
+                "artist": "Johann Sebastian Bach",
+                "year": 1738,
+                "genres": [
+                    "classical", "baroque"
+                ]
+            },
+            {
+                "title": "Symphony No. 4",
+                "artist": "Johannes Brahms",
+                "year": 1884,
+                "genres": [
+                    "classical", "romantic"
+                ]
+            }
+        ]
+
+        const song_list_string = JSON.stringify(song_list);
+        const song_list_element = document.createElement('div');
+        song_list_element.textContent = song_list_string;
+        document.body.appendChild(song_list_element);
+    </script>
+</body>
+
+</html>
