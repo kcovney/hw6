@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Part 3: Filter the data</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // make a place to put the songs
+        const song_list_container = $("<div>", {
+            id: "song_list_container"
+        });
+        $("body").append(song_list_container);
+
+        // make a dropdown menu to select songs
+        const song_dd_menu = $("<select>", {
+            id: "song_dd_menu",
+            name: "songs"
+        });
+        $("body").append(song_dd_menu);
+
+        // make a button to filter songs by genre
+        const button = $("<button>", {
+            id: "filter_button",
+            text: "Filter"
+        });
+        $("body").append(button);
+
+        $.get("songs.json", function(data) {
+            const genres = new Set();
+            data.forEach(song => {
+                song.genres.forEach(genre => {
+                    genres.add(genre);
+                });
+            });
+            genres.forEach(genre => {
+                const option = $("<option>", {
+                    value: genre,
+                    text: genre
+                });
+                song_dd_menu.append(option);
+            });
+        }, 'json');
+    </script>
+</body>
+
+</html>
