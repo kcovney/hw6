@@ -29,6 +29,11 @@
         });
         $("body").append(button);
 
+        const filtered_song = $("<div>", {
+            id: "filtered_song",
+        });
+        $("body").append(filtered_song);
+
         $.get("songs.json", function(data) {
             const genres = new Set();
             data.forEach(song => {
@@ -42,6 +47,17 @@
                     text: genre
                 });
                 song_dd_menu.append(option);
+            });
+            $("#filter_button").click(() => {
+                document.getElementById('filtered_song').innerHTML = "";
+                const selected_genre = $("#song_dd_menu").val()
+                let selected_songs = "";
+                data.forEach(song => {
+                    if (song.genres.includes(selected_genre)) {
+                        selected_songs += song.title + "<br>";
+                    }
+                });
+                document.getElementById('filtered_song').innerHTML = selected_songs;
             });
         }, 'json');
     </script>
